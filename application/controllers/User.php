@@ -34,13 +34,25 @@ class User extends CI_Controller {
 	public function index()
 	{
 		$data = array(
-			array('Username', form_input()),
-			array('Password', form_input()),
-			array('', form_submit('submit', 'Login!')),
+			array(form_input(array(
+				'name'  => 'un',
+				'class' => 'form-control',
+				'placeholder' => 'Username',
+			))),
+			array(form_input(array(
+				'name'  => 'pw',
+				'class' => 'form-control',
+				'placeholder' => 'Password',
+			))),
+			array('', form_submit(array(
+				'name'  => 'submit',
+				'value' => 'Login',
+				'class' => 'btn btn-primary',
+			))),
 		);
 
 		// Display submitted data and sanitize user input.
-		$output = $this->table->generate($data);
+		$output = '<div align="center">' . $this->table->generate($data) . '</div>';
 
 		// Load the view.
 		$data = array(
