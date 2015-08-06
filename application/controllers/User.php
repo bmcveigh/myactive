@@ -44,16 +44,25 @@ class User extends CI_Controller {
 				'class' => 'form-control',
 				'placeholder' => 'Password',
 			))),
-			array('', form_submit(array(
+			array(form_submit(array(
 				'name'  => 'submit',
 				'value' => 'Login',
 				'class' => 'btn btn-primary',
 			))),
 		);
 
+		// Set the template for the table to be a bootstrap table.
+		$this->table->set_template(
+			array(
+				'table_open' => '<table class="table">',
+			)
+		);
+
+		$this->table->set_heading(array('MyActive Login'));
+
 		// Display submitted data and sanitize user input.
 		$output = form_open(base_url() . 'index.php/user');
-		$output .= '<div align="center">' . $this->table->generate($data) . '</div>';
+		$output .= '<div align="center" class="jumbotron">' . $this->table->generate($data) . '</div>';
 		$output .= form_close();
 
 		// Load the view.
