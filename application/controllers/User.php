@@ -68,7 +68,6 @@ class User extends CI_Controller {
 		// Load the view.
 		$data = array(
 			'title' => 'Active Directory Submitted Data',
-			'css_path' => 'themes/user/css/login.css',
 			'content' => $output,
 		);
 		$this->load->view('template', $data);
