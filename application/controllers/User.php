@@ -52,7 +52,9 @@ class User extends CI_Controller {
 		);
 
 		// Display submitted data and sanitize user input.
-		$output = '<div align="center">' . $this->table->generate($data) . '</div>';
+		$output = form_open(base_url() . 'index.php/user');
+		$output .= '<div align="center">' . $this->table->generate($data) . '</div>';
+		$output .= form_close();
 
 		// Load the view.
 		$data = array(
